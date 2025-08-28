@@ -29,6 +29,8 @@
           boot.loader.efi.canTouchEfiVariables = true;
         };
         aarch64-systemd = genSystem "aarch64-linux" {
+          # This is needed at least on hetzner, it probably does not hurt elsewhere
+          boot.initrd.kernelModules = [ "virtio_gpu" ];
           boot.loader.systemd-boot.enable = true;
           boot.loader.efi.canTouchEfiVariables = true;
         };
